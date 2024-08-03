@@ -35,19 +35,31 @@
 <body class="bg-gray-100 text-gray-900">
     <header class="bg-blue-900 text-white py-4">
         <nav class="container mx-auto flex justify-between items-center">
-            <a class="navbar-brand text-2xl font-bold" href="#">&nbsp;&nbsp;&nbsp;Portfolio</a>
-            <button class="block md:hidden text-white focus:outline-none">
+            <a class="navbar-brand text-2xl font-bold" href="#">Portfolio</a>
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-toggle" class="block md:hidden text-white focus:outline-none">
                 <i class="fas fa-bars"></i>
             </button>
-            <div class="hidden md:flex space-x-8">
+            <!-- Desktop Menu -->
+            <div id="desktop-menu" class="hidden md:flex space-x-8">
                 <a class="nav-link hover:text-gray-300" href="#home">Home</a>
                 <a class="nav-link hover:text-gray-300" href="#about">About</a>
                 <a class="nav-link hover:text-gray-300" href="#skills">Skills</a>
                 <a class="nav-link hover:text-gray-300" href="#projects">Projects</a>
                 <a class="nav-link hover:text-gray-300" href="#contact">Contact</a>
             </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden">
+                <a class="block px-4 py-2 hover:bg-blue-800" href="#home">Home</a>
+                <a class="block px-4 py-2 hover:bg-blue-800" href="#about">About</a>
+                <a class="block px-4 py-2 hover:bg-blue-800" href="#skills">Skills</a>
+                <a class="block px-4 py-2 hover:bg-blue-800" href="#projects">Projects</a>
+                <a class="block px-4 py-2 hover:bg-blue-800" href="#contact">Contact</a>
+            </div>
         </nav>
     </header>
+    
+    
     
     <section id="home" class="section text-center bg-white py-16">
         <div class="container mx-auto">
@@ -168,6 +180,29 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const desktopMenu = document.getElementById('desktop-menu');
+    
+            menuToggle.addEventListener('click', () => {
+                // Toggle mobile menu visibility
+                if (mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.remove('hidden');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+    
+            // Hide mobile menu when resizing to desktop view
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 768) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+    
 </body>
 </html>

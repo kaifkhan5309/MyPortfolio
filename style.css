@@ -32,3 +32,30 @@ footer {
     margin: 0;
     padding: 20px;
 }
+/* Ensure mobile menu covers the full width and is positioned correctly */
+#mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1e40af; /* Same as the header background color */
+    z-index: 1000; /* Make sure it is on top of other elements */
+    overflow-y: auto; /* Enable scrolling if needed */
+}
+
+/* Ensure menu items are stacked and take up full width */
+#mobile-menu a {
+    display: block;
+    padding: 1rem;
+    border-bottom: 1px solid #4b5563; /* Add a subtle border between items */
+}
+
+#mobile-menu a:last-child {
+    border-bottom: none; /* Remove border from the last item */
+}
+
+/* Style the menu items to align with the header */
+#mobile-menu a:hover {
+    background-color: #1e3a8a; /* Slightly darker on hover */
+}
