@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        h1, h2, h3, .navbar-brand {
+            font-family: 'Poppins', sans-serif;
+        }
+        .nav-link {
+            transition: color 0.3s;
+        }
+        .nav-link:hover {
+            color: #4a90e2;
+        }
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <header class="bg-blue-900 text-white py-4">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a class="navbar-brand text-2xl font-bold" href="#">&nbsp;&nbsp;&nbsp;Portfolio</a>
+            <button class="block md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="hidden md:flex space-x-8">
+                <a class="nav-link hover:text-gray-300" href="#home">Home</a>
+                <a class="nav-link hover:text-gray-300" href="#about">About</a>
+                <a class="nav-link hover:text-gray-300" href="#skills">Skills</a>
+                <a class="nav-link hover:text-gray-300" href="#projects">Projects</a>
+                <a class="nav-link hover:text-gray-300" href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+    
+    <section id="home" class="section text-center bg-white py-16">
+        <div class="container mx-auto">
+            <h1 class="text-5xl font-bold mb-4">Welcome to My Portfolio</h1>
+            <p class="text-xl mb-6">Hi, I'm MD Kaif Khan, a Computer Science Engineering student and aspiring Data Analyst.</p>
+            <a href="#projects" class="btn btn-primary px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700">View My Work</a>
+        </div>
+    </section>
+
+    <section id="about" class="section py-16 bg-gray-200">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-4">About Me</h2>
+            <p class="text-xl mb-6">I am a passionate computer science student with a keen interest in data analysis and machine learning. I love turning data into actionable insights.</p>
+            <img src="profile.jpg" class="rounded-full mx-auto border-4 border-blue-600" alt="Profile Picture" style="width: 150px; height: 150px;">
+        </div>
+    </section>
+
+    <section id="skills" class="section bg-white py-16">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-4">Skills</h2>
+            <p class="text-xl mb-6">Here are some of my technical skills:</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="card bg-gray-100 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4">Programming Languages</h3>
+                    <ul class="list-disc list-inside text-left">
+                        <li>Python</li>
+                        <li>C</li>
+                        <li>C++</li>
+                        <li>Java</li>
+                    </ul>
+                </div>
+                <div class="card bg-gray-100 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4">Data Analysis Tools</h3>
+                    <ul class="list-disc list-inside text-left">
+                        <li>Excel</li>
+                        <li>Qlik</li>
+                        <li>Power BI</li>
+                        <li>SQL</li>
+                    </ul>
+                </div>
+                <div class="card bg-gray-100 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4">Machine Learning</h3>
+                    <ul class="list-disc list-inside text-left">
+                        <li>Scikit-Learn</li>
+                        <li>Numpy</li>
+                        <li>Matplotlib</li>
+                        <li>Pandas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section py-16 bg-gray-200">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-8">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="airline.png" class="w-full" alt="Project 1">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Project 1: Data Analysis on Synthetic Airline Data</h3>
+                        <p class="text-gray-700">Analyzed sales data and presented insights with Qlik.</p>
+                    </div>
+                </div>
+                <div class="card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="heart.png" class="w-full" alt="Project 2">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Project 2: Machine Learning Model for Predicting Heart Disease</h3>
+                        <p class="text-gray-700">Built a KNN model using Scikit-Learn to predict Heart Disease.</p>
+                    </div>
+                </div>
+                <div class="card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="E-commerce.png" class="w-full" alt="Project 3">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Project 3: Data Analysis for E-Commerce Business</h3>
+                        <p class="text-gray-700">Analyzed the data and created interactive visualizations using Power BI to track of E-Commerce in various countries.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section py-16 bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-8">Contact Me</h2>
+            <form id="contactForm" action="https://formspree.io/f/xgvwkkoz" method="POST" class="max-w-lg mx-auto bg-gray-50 p-8 rounded-lg shadow-lg">
+                <div class="form-group mb-4">
+                    <label for="name" class="block text-gray-700">Name:</label>
+                    <input type="text" id="name" name="name" class="form-control w-full border-gray-300 rounded-md shadow-sm" required>
+                </div>
+                <div class="form-group mb-4">
+                    <label for="email" class="block text-gray-700">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control w-full border-gray-300 rounded-md shadow-sm" required>
+                </div>
+                <div class="form-group mb-4">
+                    <label for="message" class="block text-gray-700">Message:</label>
+                    <textarea id="message" name="message" class="form-control w-full border-gray-300 rounded-md shadow-sm" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700">Send</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-blue-900 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 MD Kaif Khan. All rights reserved.</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="https://github.com/kaifkhan5309" class="text-white hover:text-gray-300"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/md-kaif-khan-107356289" class="text-white hover:text-gray-300"><i class="fab fa-linkedin"></i></a>
+                <a href="https://x.com/MDKaifKhan553" class="text-white hover:text-gray-300"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AlpineJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.2/alpine.min.js" defer></script>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
