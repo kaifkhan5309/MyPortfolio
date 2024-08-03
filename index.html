@@ -30,18 +30,36 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
+        /* Additional styles for mobile menu */
+        #menu-toggle:checked ~ .mobile-menu {
+            display: block;
+        }
+        .mobile-menu {
+            display: none;
+        }
+        .mobile-menu a {
+            padding: 16px;
+            display: block;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+        }
+        .mobile-menu a:hover {
+            background-color: #2c3e50;
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-900">
     <header class="bg-blue-900 text-white py-4">
         <nav class="container mx-auto flex justify-between items-center">
-            <a class="navbar-brand text-2xl font-bold" href="#">Portfolio</a>
+            <a class="navbar-brand text-2xl font-bold" href="#">&nbsp;&nbsp;&nbsp;Portfolio</a>
             <!-- Mobile Menu Toggle -->
-            <button id="menu-toggle" class="block md:hidden text-white focus:outline-none">
+            <input type="checkbox" id="menu-toggle" class="hidden">
+            <label for="menu-toggle" class="block md:hidden text-white cursor-pointer">
                 <i class="fas fa-bars"></i>
-            </button>
+            </label>
             <!-- Desktop Menu -->
-            <div id="desktop-menu" class="hidden md:flex space-x-8">
+            <div class="hidden md:flex space-x-8">
                 <a class="nav-link hover:text-gray-300" href="#home">Home</a>
                 <a class="nav-link hover:text-gray-300" href="#about">About</a>
                 <a class="nav-link hover:text-gray-300" href="#skills">Skills</a>
@@ -49,18 +67,17 @@
                 <a class="nav-link hover:text-gray-300" href="#contact">Contact</a>
             </div>
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden">
-                <a class="block px-4 py-2 hover:bg-blue-800" href="#home">Home</a>
-                <a class="block px-4 py-2 hover:bg-blue-800" href="#about">About</a>
-                <a class="block px-4 py-2 hover:bg-blue-800" href="#skills">Skills</a>
-                <a class="block px-4 py-2 hover:bg-blue-800" href="#projects">Projects</a>
-                <a class="block px-4 py-2 hover:bg-blue-800" href="#contact">Contact</a>
+            <div class="mobile-menu fixed top-16 right-0 w-full bg-blue-900 text-white">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
             </div>
         </nav>
     </header>
-    
-    
-    
+
+    <!-- Sections -->
     <section id="home" class="section text-center bg-white py-16">
         <div class="container mx-auto">
             <h1 class="text-5xl font-bold mb-4">Welcome to My Portfolio</h1>
@@ -174,35 +191,28 @@
         </div>
     </footer>
 
-    <!-- AlpineJS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.2/alpine.min.js" defer></script>
-    <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', function() {
             const menuToggle = document.getElementById('menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const desktopMenu = document.getElementById('desktop-menu');
-    
-            menuToggle.addEventListener('click', () => {
-                // Toggle mobile menu visibility
-                if (mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.remove('hidden');
-                } else {
-                    mobileMenu.classList.add('hidden');
-                }
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            // Close mobile menu when a link is clicked
+            document.querySelectorAll('.mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.checked = false;
+                });
             });
-    
-            // Hide mobile menu when resizing to desktop view
-            window.addEventListener('resize', () => {
-                if (window.innerWidth >= 768) {
-                    mobileMenu.classList.add('hidden');
-                }
+
+            // Smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
             });
         });
     </script>
-    
 </body>
 </html>
